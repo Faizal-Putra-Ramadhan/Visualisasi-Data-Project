@@ -83,7 +83,7 @@ if "All" not in selected_job and len(selected_job) > 0:
     df = df[df['part_time_job'].isin(selected_job)]
 
 # --- MAIN DASHBOARD TITLE ---
-st.title("🎓 Global Student Analytics Dashboard")
+st.title("Global Student Analytics Dashboard")
 st.markdown("Menganalisis pola perilaku, stres, dan dampaknya terhadap performa akademik mahasiswa secara global.")
 st.markdown("---")
 
