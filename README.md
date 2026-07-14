@@ -1,4 +1,4 @@
-# Global Student Analytics Dashboard 🎓
+# Global Student Analytics Dashboard
 
 Dashboard interaktif yang dibangun menggunakan **Streamlit** dan **Plotly** untuk menganalisis performa akademik, kebiasaan, dan pola gaya hidup mahasiswa berdasarkan dataset *Global University Students Performance & Habits*. 
 
