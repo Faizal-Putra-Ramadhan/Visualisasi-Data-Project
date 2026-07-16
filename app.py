@@ -72,8 +72,14 @@ def multiselect_filter(col_name, label):
 selected_country = multiselect_filter('country', 'Negara (Country)')
 selected_major = multiselect_filter('major', 'Jurusan (Major)')
 selected_job = multiselect_filter('part_time_job', 'Pekerjaan Paruh Waktu')
-selected_age = multiselect_filter('age', 'Usia (Age)')
 selected_gender = multiselect_filter('gender', 'Gender (Jenis Kelamin)')
+
+if 'age' in df_raw.columns:
+    min_age = int(df_raw['age'].min())
+    max_age = int(df_raw['age'].max())
+    selected_age = st.sidebar.slider('Usia (Age)', min_value=min_age, max_value=max_age, value=(min_age, max_age))
+else:
+    selected_age = None
 
 # Apply filters
 df = df_raw.copy()
@@ -83,8 +89,8 @@ if "All" not in selected_major and len(selected_major) > 0:
     df = df[df['major'].isin(selected_major)]
 if "All" not in selected_job and len(selected_job) > 0:
     df = df[df['part_time_job'].isin(selected_job)]
-if "All" not in selected_age and len(selected_age) > 0:
-    df = df[df['age'].isin(selected_age)]
+if selected_age:
+    df = df[(df['age'] >= selected_age[0]) & (df['age'] <= selected_age[1])]
 if "All" not in selected_gender and len(selected_gender) > 0:
     df = df[df['gender'].isin(selected_gender)]
 
