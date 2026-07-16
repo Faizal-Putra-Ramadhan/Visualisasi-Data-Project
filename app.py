@@ -72,6 +72,8 @@ def multiselect_filter(col_name, label):
 selected_country = multiselect_filter('country', 'Negara (Country)')
 selected_major = multiselect_filter('major', 'Jurusan (Major)')
 selected_job = multiselect_filter('part_time_job', 'Pekerjaan Paruh Waktu')
+selected_age = multiselect_filter('age', 'Usia (Age)')
+selected_gender = multiselect_filter('gender', 'Gender (Jenis Kelamin)')
 
 # Apply filters
 df = df_raw.copy()
@@ -81,6 +83,10 @@ if "All" not in selected_major and len(selected_major) > 0:
     df = df[df['major'].isin(selected_major)]
 if "All" not in selected_job and len(selected_job) > 0:
     df = df[df['part_time_job'].isin(selected_job)]
+if "All" not in selected_age and len(selected_age) > 0:
+    df = df[df['age'].isin(selected_age)]
+if "All" not in selected_gender and len(selected_gender) > 0:
+    df = df[df['gender'].isin(selected_gender)]
 
 # --- MAIN DASHBOARD TITLE ---
 st.title("Global Student Analytics Dashboard")
