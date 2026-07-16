@@ -155,6 +155,7 @@ with tab1:
                 opacity=0.8
             )
             fig_gpa = clean_layout(fig_gpa)
+            fig_gpa.update_xaxes(range=[None, 4.05])
             fig_gpa.update_traces(marker_line_width=1, marker_line_color="white")
             st.plotly_chart(fig_gpa, use_container_width=True)
             st.markdown(
@@ -200,6 +201,7 @@ with tab2:
             color_discrete_sequence=['#2ecc71']
         )
         fig_scatter = clean_layout(fig_scatter)
+        fig_scatter.update_yaxes(range=[None, 4.05])
         st.plotly_chart(fig_scatter, use_container_width=True)
         st.markdown(
             '<div class="story-text">Setiap titik mewakili satu mahasiswa. Garis tren merah menunjukkan arah korelasi: waktu belajar harian memiliki dampak positif yang konsisten terhadap IPK mahasiswa. Pola ini terlihat sangat jelas dari level individu tanpa agregasi.</div>', 
@@ -222,6 +224,7 @@ with tab2:
                 color_continuous_scale='Viridis'
             )
             fig_binned = clean_layout(fig_binned)
+            fig_binned.update_yaxes(range=[None, 4.05])
             fig_binned.update_layout(coloraxis_showscale=False)
             st.plotly_chart(fig_binned, use_container_width=True)
             st.markdown(
@@ -240,6 +243,7 @@ with tab2:
                 color_discrete_sequence=px.colors.qualitative.Pastel
             )
             fig_box = clean_layout(fig_box)
+            fig_box.update_yaxes(range=[None, 4.05])
             fig_box.update_layout(showlegend=False)
             st.plotly_chart(fig_box, use_container_width=True)
             st.markdown(
