@@ -56,6 +56,9 @@ def load_data():
 
 df_raw = load_data()
 
+if 'gpa' in df_raw.columns:
+    df_raw['gpa'] = df_raw['gpa'].clip(upper=4.0)
+
 if df_raw.empty:
     st.stop()
 
